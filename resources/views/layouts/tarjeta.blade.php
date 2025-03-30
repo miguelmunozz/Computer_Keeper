@@ -14,7 +14,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><p>{{ $countEnproceso }}</p></div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-spinner fa-spin fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><p>{{ $countAbierto }}</p></div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fas fa-check-circle fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800"><p>{{ $totalServicios }}</p></div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fas fa-list-alt fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -90,14 +90,14 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th># de servicio</th>
+                        <th>No. de servicio</th>
                         <th>Fecha</th>
-                        <th>Cod Equipo</th>
-                        <th>Cod Tecnico</th>
+                        <th>Código de Equipo</th>
+                        <th>Técnico</th>
                         <th>Estado</th>
-                        <th>Clasificacion</th>
-                        <th>Categoria</th>
-                        <th>Detalle Servicio</th>
+                        <th>Clasificación</th>
+                        <th>Categoría</th>
+                        <th>Detalle del servicio</th>
                         <th>Observaciones</th>
                     </tr>
                 </thead>

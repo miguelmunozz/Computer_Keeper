@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="bg-gradient-primary d-flex justify-content-center align-items-center" style="height: 100vh;">
+<body class="bg-gradient-primary d-flex justify-content-center align-items-center" style="height: 100vh; background: url('/img/FondoLogin.png') no-repeat center center; background-size: cover;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">

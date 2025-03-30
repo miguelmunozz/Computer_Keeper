@@ -16,7 +16,7 @@ class TecnicoController extends Controller
 {
     public function index()
     {
-        $tecnico = Tecnico::orderBy('Cod_Tecnico', 'DESC')->paginate(3);
+        $tecnico = Tecnico::orderBy('Cod_Tecnico', 'DESC')->paginate();
         return view('tecnico.index', compact('tecnico'));
     }
 
@@ -65,6 +65,7 @@ class TecnicoController extends Controller
         $tecnicos->Direccion = $request->input('Direccion');
         $tecnicos->Telefono = $request->input('Telefono');
         $tecnicos->Fecha_Nac = $request->input('Fecha_Nac');
+        $tecnicos->email = $request->input('email');
         $tecnicos->save();
 
         // Obtener el ID del cliente recién creado
@@ -77,23 +78,6 @@ class TecnicoController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();
-
-        $rolSeleccionado = $request->input('role_id');
-        $role_id = null;
-        if ($rolSeleccionado === 'Administrador') {
-            $role_id = 1;
-        } elseif ($rolSeleccionado === 'Coordinador de TI') {
-            $role_id = 2;
-        } elseif ($rolSeleccionado === 'Técnico') {
-            $role_id = 3;
-        }
-
-        $role_user = new Role_user;
-        $role_user->id = $tecnicoID;
-        $role_user->role_id = $role_id;
-        $role_user->user_id = $tecnicoID;
-        $role_user->save();
-
 
         return redirect('tecnico');
     }
@@ -132,58 +116,39 @@ class TecnicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validación de datos
-        $validator = $this->validator($request->all());
-    
-        if ($validator->fails()) {
-            return redirect('tecnico/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput();
-        }
-    
-        // Busca el técnico que deseas actualizar por su ID
-        $tecnicos = Tecnico::findOrFail($id);
-    
-        // Actualiza los campos del técnico con los datos del formulario
-        $tecnicos->Nombres = $request->input('Nombres');
-        $tecnicos->Apellidos = $request->input('Apellidos');
-        $tecnicos->Num_CC = $request->input('Num_CC');
-        $tecnicos->Fecha_Ingreso = $request->input('Fecha_Ingreso');
-        $tecnicos->Direccion = $request->input('Direccion');
-        $tecnicos->Telefono = $request->input('Telefono');
-        $tecnicos->Fecha_Nac = $request->input('Fecha_Nac');
-        $tecnicos->save();
-    
-        // Actualiza el usuario correspondiente en la tabla 'users'
-        $user = User::findOrFail($id);
-        $user->name = $request->input('Nombres') . ' ' . $request->input('Apellidos');
-        $user->email = $request->input('email');
-        
-        // Si deseas cambiar la contraseña, puedes hacerlo aquí
-        if ($request->has('password')) {
-            $user->password = Hash::make($request->input('password'));
-        }
-    
-        $user->save();
-    
-        // Actualiza la relación en la tabla 'role_user'
-        $rolSeleccionado = $request->input('role_id');
-        $role_id = null;
-        if ($rolSeleccionado === 'Administrador') {
-            $role_id = 1;
-        } elseif ($rolSeleccionado === 'Coordinador de TI') {
-            $role_id = 2;
-        } elseif ($rolSeleccionado === 'Técnico') {
-            $role_id = 3;
-        }
-    
-        $role_user = Role_user::where('user_id', $id)->first();
-        if ($role_user) {
-            $role_user->role_id = $role_id;
-            $role_user->save();
-        }
-    
-        return redirect('tecnico');
+    // Validación de datos
+    //$validator = $this->validator($request->all(), true);
+
+    //if ($validator->fails()) {
+       // return redirect('tecnico/' . $id . '/edit')
+      //      ->withErrors($validator)
+      //      ->withInput();
+    //}
+
+    // Busca el técnico que deseas actualizar por su ID
+    $tecnicos = Tecnico::findOrFail($id);
+
+    // Actualiza los campos del técnico con los datos del formulario
+    $tecnicos->Nombres = $request->input('Nombres');
+    $tecnicos->Apellidos = $request->input('Apellidos');
+    $tecnicos->Direccion = $request->input('Direccion');
+    $tecnicos->Telefono = $request->input('Telefono');
+    $tecnicos->email = $request->input('email');
+    $tecnicos->save();
+
+    // Actualiza el usuario correspondiente en la tabla 'users'
+    $user = User::findOrFail($id);
+    $user->name = $request->input('Nombres') . ' ' . $request->input('Apellidos');
+    $user->email = $request->input('email');
+
+    // Si se proporciona una nueva contraseña, actualízala
+    //if ($request->filled('password')) {
+       // $user->password = Hash::make($request->input('password'));
+    //}
+
+    $user->save();
+
+    return redirect('tecnico');
     }
     
 
@@ -201,16 +166,10 @@ class TecnicoController extends Controller
         // Eliminar el técnico, si existe
         $tecnicos->delete();
     
-        // Eliminar el usuario correspondiente en la tabla 'users', si existe
+        // Eliminar el usuario correspondiente en la tabla 'users',
         $user = User::find($Cod_Tecnico);
         if ($user) {
             $user->delete();
-        }
-    
-        // Eliminar la relación en la tabla 'role_user', si existe
-        $role_user = Role_user::where('user_id', $Cod_Tecnico)->first();
-        if ($role_user) {
-            $role_user->delete();
         }
     
         // Agrega tus instrucciones de redirección 

@@ -22,12 +22,19 @@
         <input type="date" name="Fecha" id="Fecha" class="form-control" value="{{$servicio->Fecha}}">
     </div>    
     <div class="col-md-4">
-        <label for="Cod_Equipo" class="form-label">Codigo de equipo</label>
+        <label for="Cod_Equipo" class="form-label">Código de equipo</label>
         <input type="text" name="Cod_Equipo" id="Cod_Equipo" class="form-control" value="{{$servicio->Cod_Equipo}}">
     </div>
     <div class="col-md-4">
-        <label for="Cod_Tecnico" class="form-label">Codigo de tecnico</label>
-        <input type="text" name="Cod_Tecnico" id="Cod_Tecnico" class="form-control" value="{{$servicio->Cod_Tecnico}}">
+        <label for="Cod_Tecnico" class="form-label">Técnico</label>
+        <select name="Cod_Tecnico" id="Cod_Tecnico" class="form-control">
+            <option value="">Seleccionar Técnico</option>
+            @foreach ($tecnicos as $tecnico)
+                <option value="{{ $tecnico->Cod_Tecnico }}" {{ $servicio->Cod_Tecnico == $tecnico->Cod_Tecnico ? 'selected' : '' }}>
+                    {{ $tecnico->Nombres }} {{ $tecnico->Apellidos }}
+                </option>
+            @endforeach
+        </select>
     </div>
     <div class="col-4">
         <label for="Estado" class="form-label">Estado</label>
@@ -38,12 +45,16 @@
         </select>
     </div>
     <div class="col-6">
-        <label for="Clasificacion" class="form-label">Clasificacion</label>
+        <label for="Clasificacion" class="form-label">Clasificación</label>
         <select name="Clasificacion" id="Clasificacion" class="form-control">
             <option value="Incidente" {{ $servicio->Clasificacion === 'Incidente' ? 'selected' : '' }}>Incidente</option>
             <option value="Requerimiento" {{ $servicio->Clasificacion === 'Requerimiento' ? 'selected' : '' }}>Requerimiento</option>
         </select>
-    </div>    
+    </div>
+    <div class="col-md-4">
+        <label for="Categoria" class="form-label">Categoría</label>
+        <input type="text" name="Categoria" id="Categoria" class="form-control" value="{{$servicio->Categoria}}">
+    </div>   
     <div class="col-md-6">
         <label for="Detalle_Servicio" class="form-label">Detalle del servicio</label>
         <input type="text" name="Detalle_Servicio" id="Detalle_Servicio" class="form-control" value="{{$servicio->Detalle_Servicio}}">

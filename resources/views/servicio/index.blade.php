@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-9">
             <a href="{{ url('servicio/create') }}" class="pull-right">
-                <button class="btn btn-success">Crear Servicio</button> </a>
+                <button class="btn btn-success">Crear servicio</button> </a>
         </div>
     </div>
     <div class="mb-3"></div>
@@ -17,14 +17,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Número de servicio</th>
+                            <th>No. de servicio</th>
                             <th>Fecha</th>
-                            <th>Cod Equipo</th>
-                            <th>Cod Tecnico</th>
+                            <th>Código de equipo</th>
+                            <th>Técnico</th>
                             <th>Estado</th>
-                            <th>Clasificacion</th>
-                            <th>Categoria</th>
-                            <th>Detalle Servicio</th>
+                            <th>Clasificación</th>
+                            <th>Categoría</th>
+                            <th>Detalle del servicio</th>
                             <th>Observaciones</th>
                             <th>Opciones</th>
                         </tr>

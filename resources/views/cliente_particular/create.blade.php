@@ -32,20 +32,20 @@
     </div>
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="Direccion">Direccion</label>
-            <input type="text" name="Direccion" id="Direccion" class="form-control" placeholder="Digite direccion">
+            <label for="Direccion">Dirección</label>
+            <input type="text" name="Direccion" id="Direccion" class="form-control" placeholder="Digite dirección">
         </div>
     </div>
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="Telefono">Telefono</label>
-            <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Digite telefono">
+            <label for="Telefono">Teléfono</label>
+            <input type="text" name="Telefono" id="Telefono" class="form-control" placeholder="Digite teléfono">
         </div>
     </div>
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="Num_CC">Numero de CC</label>
-            <input type="text" name="Num_CC" id="Num_CC" class="form-control" placeholder="Digite numero de cc">
+            <label for="Num_CC">No. de cédula</label>
+            <input type="text" name="Num_CC" id="Num_CC" class="form-control" placeholder="Digite numero de cédula">
         </div>
     </div>
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
@@ -56,16 +56,22 @@
     </div>    
        <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="Correo">Correo</label>
-            <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Digite correo">
+            <label for="Correo">Correo electrónico</label>
+            <input type="text" name="Correo" id="Correo" class="form-control" placeholder="Digite correo electrónico">
         </div>
     </div>
-    <div class="col-lg-6 col-md-12 col-sm-6 col-xs-12">
-        <div class="form-group"> <br>
-            <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-ok"></span> Guardar</button>
-            <button class="btn btn-danger" type="reset"><span class="glyphicon glyphicon-remove"></span> Vaciar Campos</button>
-            <a class="btn btn-info" type="reset" href="{{ url('cliente_particular') }}"><span class="glyphicon glyphicon-home"></span> Regresar </a>
-        </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit">
+            <span class="glyphicon glyphicon-ok"></span> Guardar
+        </button>
+        <button class="btn btn-danger" type="reset">
+            <span class="glyphicon glyphicon-remove"></span> Vaciar campos
+        </button>
+        <a class="btn btn-info" type="reset" href="{{ url('cliente_particular') }}">
+            <span class="glyphicon glyphicon-home"></span> Regresar
+        </a>
     </div>
 </div>
 {!! Form::close() !!}

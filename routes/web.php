@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomPasswordResetController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +26,11 @@ Route::resource('cliente_empresarial', 'App\Http\Controllers\ClienteEmpresarialC
 Route::resource('cliente_particular', 'App\Http\Controllers\ClienteParticularController');
 Route::resource('tecnico', 'App\Http\Controllers\TecnicoController');
 
-Route::get('/reset-password', 'CustomPasswordResetController@showResetForm')->name('password.reset.custom');
-Route::post('/reset-password', 'CustomPasswordResetController@reset')->name('password.update.custom');
+Route::get('/generar-reporte', [PDFController::class, 'generarPDF']);
+
+
+Route::get('/reset-password', [CustomPasswordResetController::class, 'showResetForm'])->name('password.reset.custom');
+Route::post('/reset-password', [CustomPasswordResetController::class, 'reset'])->name('password.update.custom');
 
 
 Auth::routes();

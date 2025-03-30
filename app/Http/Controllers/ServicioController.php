@@ -54,7 +54,8 @@ class ServicioController extends Controller
     public function edit($Cod_Servicio)
     {
         $servicio = Servicio::findOrFail($Cod_Servicio);
-        return view("servicio.edit", ["servicio" => $servicio]);
+        $tecnicos = Tecnico::orderBy('Nombres', 'ASC')->get(); // Obtener técnicos ordenados por nombres
+        return view("servicio.edit", ["servicio" => $servicio, "tecnicos" => $tecnicos]);
     }
 
     public function update(Request $request, $Cod_Servicio)

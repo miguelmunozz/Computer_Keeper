@@ -9,7 +9,7 @@ class CustomPasswordResetController extends Controller
 {
     public function showResetForm()
     {
-        return view('layoust/restablecer'); // Reemplaza 'auth.reset' con la vista que deseas mostrar
+        return view('layouts/restablecer'); // Reemplaza 'auth.reset' con la vista que deseas mostrar
     }
 
     public function reset(Request $request)

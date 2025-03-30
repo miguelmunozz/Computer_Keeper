@@ -24,43 +24,29 @@
             <input type="text" name="Nombres" id="Nombres" class="form-control" value="{{ $tecnico->Nombres }}" placeholder="Digite el nombre">
         </div>
     </div>
-    <!-- Otros campos de entrada de datos con valores iniciales -->
-
+    <!-- Otros campos de entrada de datos con valores iniciales -->  
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="role_id">Rol</label>
-            <select name="role_id" id="role_id" class="form-control">
-                <option value="1" {{ $tecnico->role_id == 1 ? 'selected' : '' }}>Administrador</option>
-                <option value="2" {{ $tecnico->role_id == 2 ? 'selected' : '' }}>Coordinador de TI</option>
-                <option value="3" {{ $tecnico->role_id == 3 ? 'selected' : '' }}>Técnico</option>
-            </select>
+            <label for="Nombres">Apellidos</label>
+            <input type="text" name="Apellidos" id="Apellidos" class="form-control" value="{{ $tecnico->Apellidos }}" placeholder="Digite los apellidos">
         </div>
     </div>
-    
-
     <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
         <div class="form-group">
-            <label for="email">Correo</label>
+            <label for="Nombres">Dirección</label>
+            <input type="text" name="Direccion" id="Direccion" class="form-control" value="{{ $tecnico->Direccion }}" placeholder="Digite la dirección">
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
+        <div class="form-group">
+            <label for="Nombres">Teléfono</label>
+            <input type="text" name="Telefono" id="Telefono" class="form-control" value="{{ $tecnico->Telefono }}" placeholder="Digite el teléfono">
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
             <input type="text" name="email" id="email" class="form-control" value="{{ $tecnico->email }}" placeholder="Digite correo">
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
-        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-        <div class="form-group">
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-
-    <div class="col-lg-4 col-md-9 col-sm-6 col-xs-12">
-        <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-        <div class="form-group">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </div>
     </div>
 

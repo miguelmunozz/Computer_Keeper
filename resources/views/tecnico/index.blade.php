@@ -16,10 +16,10 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Codigo de Tecnico</th>
+                        <th>Código de técnico</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
-                        <th># CC</th>
+                        <th>No. de cédula</th>
                         <th>Fecha de ingreso</th>
                         <th>Dirección</th>
                         <th>Teléfono</th>

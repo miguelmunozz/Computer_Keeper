@@ -16,14 +16,14 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Codigo de cliente</th>
+                        <th>Código de cliente</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Dirección</th>
                         <th>Teléfono</th>
-                        <th># CC</th>
+                        <th>No. de cédula</th>
                         <th>Fecha de nacimiento</th>
-                        <th>Correo</th>
+                        <th>Correo electrónico</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>

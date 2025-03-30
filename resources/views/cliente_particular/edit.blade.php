@@ -26,15 +26,15 @@
         <input type="text" name="Apellidos" id="Apellidos" class="form-control" value="{{$cliente_particular->Apellidos}}">
     </div>
     <div class="col-md-6">
-        <label for="Direccion" class="form-label">Direccion</label>
+        <label for="Direccion" class="form-label">Dirección</label>
         <input type="text" name="Direccion" id="Direccion" class="form-control" value="{{$cliente_particular->Direccion}}">
     </div>
     <div class="col-md-4">
-        <label for="Telefono" class="form-label">Telefono</label>
+        <label for="Telefono" class="form-label">Teléfono</label>
         <input type="text" name="Telefono" id="Telefono" class="form-control" value="{{$cliente_particular->Telefono}}">
     </div>
     <div class="col-md-4">
-        <label for="Num_CC" class="form-label"># CC</label>
+        <label for="Num_CC" class="form-label">No. de cédula</label>
         <input type="text" name="Num_CC" id="Num_CC" class="form-control" value="{{$cliente_particular->Num_CC}}">
     </div>
     <div class="col-md-4">
@@ -42,7 +42,7 @@
         <input type="date" name="Fecha_Nac" id="Fecha_Nac" class="form-control" value="{{$cliente_particular->Fecha_Nac}}">
     </div>    
     <div class="col-md-4">
-        <label for="Correo" class="form-label">Correo</label>
+        <label for="Correo" class="form-label">Correo electrónico</label>
         <input type="text" name="Correo" id="Correo" class="form-control" value="{{$cliente_particular->Correo}}">
     </div>
     <div class="col-12 mt-3">

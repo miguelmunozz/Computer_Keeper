@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-9">
             <a href="{{ url('equipo/create') }}" class="pull-right">
-                <button class="btn btn-success">Crear Equipo</button> </a>
+                <button class="btn btn-success">Crear equipo</button> </a>
         </div>
     </div>
     <div class="mb-3"></div>
@@ -16,16 +16,16 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Cod Equipo</th>
-                            <th>Nombre Equipo</th>
+                            <th>Código del equipo</th>
+                            <th>Nombre del equipo</th>
                             <th>Marca</th>
                             <th>Modelo</th>
                             <th>Serial</th>
-                            <th>Nombre SO</th>
+                            <th>Sistema operativo</th>
                             <th>Procesador</th>
                             <th>Memoria RAM</th>
-                            <th>Tipo de Sistemas</th>
-                            <th>Tipo de Equipo</th>
+                            <th>Tipo de sistemas</th>
+                            <th>Tipo de equipo</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>

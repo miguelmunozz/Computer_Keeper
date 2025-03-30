@@ -16,11 +16,11 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Codigo de empresa</th>
+                        <th>Código de empresa</th>
                         <th>Nombre</th>
-                        <th>Numero de NIT</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
+                        <th>Número de NIT</th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
                         <th>Fecha de contrato</th>
                         <th>Opciones</th>
                     </tr>

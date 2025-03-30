@@ -22,15 +22,15 @@
         <input type="text" name="Nombre" id="Nombre" class="form-control" value="{{$empresa->Nombre}}">
     </div>
     <div class="col-md-4">
-        <label for="Num_NIT" class="form-label">Numero de NIT</label>
+        <label for="Num_NIT" class="form-label">Número de NIT</label>
         <input type="text" name="Num_NIT" id="Num_NIT" class="form-control" value="{{$empresa->Num_NIT}}">
     </div>
     <div class="col-4">
-        <label for="Direccion" class="form-label">Direccion</label>
+        <label for="Direccion" class="form-label">Dirección</label>
         <input type="text" name="Direccion" id="Direccion" class="form-control" value="{{$empresa->Direccion}}">
     </div>
     <div class="col-6">
-        <label for="Telefono" class="form-label">Telefono</label>
+        <label for="Telefono" class="form-label">Teléfono</label>
         <input type="text" name="Telefono" id="Telefono" class="form-control" value="{{$empresa->Telefono}}">
     </div>
     <div class="col-md-6">
