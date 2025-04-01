@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); 
-            $table->string('description');
-            $table->timestamps();
+        Schema::table('cliente_particular', function (Blueprint $table) {
+            $table->foreign(['Cod_Cliente_Part'], 'cliente_particular_ibfk_1')->references(['Cod_Cliente'])->on('cliente');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::table('cliente_particular', function (Blueprint $table) {
+            $table->dropForeign('cliente_particular_ibfk_1');
+        });
     }
 };

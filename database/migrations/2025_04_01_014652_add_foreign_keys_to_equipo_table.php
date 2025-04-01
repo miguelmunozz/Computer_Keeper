@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('role_user', function (Blueprint $table) {
-            $table->id();
-            $table->integer('role_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->timestamps();
+        Schema::table('equipo', function (Blueprint $table) {
+            $table->foreign(['Cod_Cliente'], 'equipo_ibfk_1')->references(['Cod_Cliente'])->on('cliente');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_user');
+        Schema::table('equipo', function (Blueprint $table) {
+            $table->dropForeign('equipo_ibfk_1');
+        });
     }
 };
