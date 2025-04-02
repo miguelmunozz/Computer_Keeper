@@ -23,8 +23,6 @@ return new class extends Migration
             $table->date('Fecha_Nac')->nullable();
             $table->string('Correo', 30)->nullable();
 
-            $table->unique(['Cod_Cliente_Part'], 'Cod_Cliente_Part_2');
-            $table->index(['Cod_Cliente_Part'], 'Cod_Cliente_Part');
         });
     }
 
