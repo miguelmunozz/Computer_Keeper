@@ -35,5 +35,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="footer">
+        Fecha del reporte: {{ date('d/m/Y') }} <!-- Pie de página con la fecha -->
+    </div>
 </body>
 </html>
