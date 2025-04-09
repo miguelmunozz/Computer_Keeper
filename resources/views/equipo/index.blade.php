@@ -1,10 +1,12 @@
 @extends('layouts.plantilla')
 @section('contenido')
     <div class="row">
+        @can('CrearEquipo')
         <div class="col-md-9">
             <a href="{{ url('equipo/create') }}" class="pull-right">
                 <button class="btn btn-success">Crear equipo</button> </a>
         </div>
+        @endcan
     </div>
     <div class="mb-3"></div>
     <div class="card shadow mb-4">
@@ -43,13 +45,18 @@
                                 <td>{{ $equ->Tipo_Sistema }}</td>
                                 <td>{{ $equ->Tipo_Equipo }}</td>
                                 <td>
+                                    @can('EditarEquipo')
                                     <a
                                         href="{{ URL::action('App\Http\Controllers\EquipoController@edit', $equ->Cod_Equipo) }}"><button
-                                            class="btn btn-primary">Actualizar</button></a>
+                                            class="btn btn-primary">Actualizar</button>
+                                    </a>
+                                    @endcan
+                                    @can('EliminarEquipo')
                                     <a href="" data-bs-toggle="modal"
                                         data-bs-target="#modal-delete-{{ $equ->Cod_Equipo }}">
                                         <button type="button" class="btn btn-danger"> Eliminar</button>
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @include('equipo.modal')

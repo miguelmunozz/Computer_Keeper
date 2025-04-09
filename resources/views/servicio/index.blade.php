@@ -3,8 +3,11 @@
 
     <div class="row">
         <div class="col-md-9">
+            @can('CrearServicio')
             <a href="{{ url('servicio/create') }}" class="pull-right">
-                <button class="btn btn-success">Crear servicio</button> </a>
+                <button class="btn btn-success">Crear servicio</button> 
+            </a>
+            @endcan
         </div>
     </div>
     <div class="mb-3"></div>
@@ -42,13 +45,16 @@
                                 <td>{{ $ser->Detalle_Servicio }}</td>
                                 <td>{{ $ser->Observaciones }}</td>
                                 <td>
-                                    <a
-                                        href="{{ URL::action('App\Http\Controllers\ServicioController@edit', $ser->Cod_Servicio) }}"><button
-                                            class="btn btn-primary">Actualizar</button></a>
-                                    <a href="" data-bs-toggle="modal"
-                                        data-bs-target="#modal-delete-servicio{{ $ser->Cod_Servicio }}">
+                                    @can('EditarServicio')
+                                    <a href="{{ URL::action('App\Http\Controllers\ServicioController@edit', $ser->Cod_Servicio) }}">
+                                        <button class="btn btn-primary">Actualizar</button>
+                                    </a>
+                                    @endcan
+                                    @can('EliminarServicio')
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#modal-delete-servicio{{ $ser->Cod_Servicio }}">
                                         <button type="button" class="btn btn-danger"> Eliminar</button>
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                             @include('servicio.modal')

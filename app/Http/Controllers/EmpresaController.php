@@ -13,6 +13,15 @@ class EmpresaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('can:VerEmpresa')->only('index');
+        $this->middleware('can:CrearEmpresa')->only(['create', 'store']);
+        $this->middleware('can:EditarEmpresa')->only(['edit', 'update']);
+        $this->middleware('can:EliminarEmpresa')->only('destroy');
+    }
+
     public function index()
     {
         $empresa = empresa::orderBy('Cod_Empresa', 'DESC')->paginate();

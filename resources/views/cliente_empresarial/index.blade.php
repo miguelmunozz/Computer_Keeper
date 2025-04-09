@@ -1,10 +1,12 @@
 @extends('layouts.plantilla')
 @section('contenido')
 <div class="row">
+    @can('CrearCliente')
     <div class="col-md-9">
         <a href="{{ url('cliente_empresarial/create') }}" class="pull-right">
             <button class="btn btn-success">Crear cliente empresarial</button> </a>
     </div>
+    @endcan
 </div>
 <div class="mb-3"></div>
 <div class="card shadow mb-4">
@@ -43,10 +45,14 @@
                             <td>{{ $cle->Fecha_Nac }}</td>
                             <td>{{ $cle->Correo }}</td>
                             <td>
+                                @can('EditarCliente')
                                 <a href="{{ URL::action('App\Http\Controllers\ClienteEmpresarialController@edit', $cle->Cod_Cliente_Emp) }}"><button class="btn btn-primary">Actualizar</button></a>
+                                @endcan
+                                @can('EliminarCliente')
                                 <a href="" data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $cle->Cod_Cliente_Emp }}">
                                     <button type="button" class="btn btn-danger">Eliminar</button>
                                 </a>
+                                @endcan
                             </td>
                         </tr>
                         @include('cliente_empresarial.modal')

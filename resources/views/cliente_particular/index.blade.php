@@ -2,8 +2,11 @@
 @section('contenido')
 <div class="row">
     <div class="col-md-9">
+        @can('CrearCliente')
         <a href="{{ url('cliente_particular/create') }}" class="pull-right">
-            <button class="btn btn-success">Crear cliente particular</button> </a>
+            <button class="btn btn-success">Crear cliente particular</button> 
+        </a>
+        @endcan
     </div>
 </div>
 <div class="mb-3"></div>
@@ -39,10 +42,14 @@
                             <td>{{ $clp->Fecha_Nac }}</td>
                             <td>{{ $clp->Correo }}</td>
                             <td>
+                                @can('EditarCliente')
                                 <a href="{{ URL::action('App\Http\Controllers\ClienteParticularController@edit', $clp->Cod_Cliente_Part) }}"><button class="btn btn-primary">Actualizar</button></a>
+                                @endcan
+                                @can('EliminarCliente')
                                 <a href="" data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $clp->Cod_Cliente_Part }}">
                                     <button type="button" class="btn btn-danger">Eliminar</button>
                                 </a>
+                                @endcan
                             </td>
                         </tr>
                         @include('cliente_particular.modal')

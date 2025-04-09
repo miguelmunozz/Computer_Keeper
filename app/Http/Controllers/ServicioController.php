@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\DB;
 class ServicioController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:VerServicio')->only('index');
+        $this->middleware('permission:CrearServicio')->only(['create', 'store']);
+        $this->middleware('permission:EditarServicio')->only(['edit', 'update']);
+        $this->middleware('permission:EliminarServicio')->only('destroy');
+    }
+
     public function index()
     {
         $servicio = Servicio::orderBy('Cod_Servicio', 'DESC')->paginate(0);

@@ -57,6 +57,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            @can('VerServicio')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -67,13 +68,16 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
                         <a class="collapse-item" href="{{ url('servicio') }}" href="buttons.html">Servicios</a>
-                        <a class="collapse-item" href="{{ url('servicio/create') }}" href="cards.html">Insertar
-                            servicio</a>
+                        @can('CrearServicio')
+                        <a class="collapse-item" href="{{ url('servicio/create') }}" href="cards.html">Insertar servicio</a>
+                        @endcan
                     </div>
                 </div>
             </li>
+            @endcan
 
             <!-- Nav Item - Utilities Collapse Menu -->
+            @can('VerEquipo')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -85,13 +89,16 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
                         <a class="collapse-item"href="{{ url('equipo') }}" href="utilities-color.html">Equipos</a>
-                        <a class="collapse-item" href="{{ url('equipo/create') }}"href="utilities-border.html">Insertar
-                            equipos</a>
-
+                        @can('CrearEquipo')
+                        <a class="collapse-item" href="{{ url('equipo/create') }}"href="utilities-border.html">Insertar equipos</a>
+                        @endcan
                     </div>
                 </div>
             </li>
+            @endcan
+
             <!-- Nav Item - Utilities Collapse Menu -->
+            @can('VerEmpresa')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpresas"
                     aria-expanded="true" aria-controls="collapseEmpresas">
@@ -103,14 +110,15 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opciones:</h6>
                         <a class="collapse-item" href="{{ url('empresa') }}" href="utilities-color.html">Empresas</a>
-                        <a class="collapse-item" href="{{ url('empresa/create') }}"
-                            href="utilities-border.html">Insertar
-                            empresas</a>
-
+                        @can('CrearEmpresa')
+                        <a class="collapse-item" href="{{ url('empresa/create') }}" href="utilities-border.html">Insertar empresas</a>
+                        @endcan
                     </div>
                 </div>
             </li>
+            @endcan
 
+            @can('VerCliente')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes"
                     aria-expanded="true" aria-controls="collapseClientes">
@@ -130,7 +138,9 @@
                     </div>
                 </div>
             </li>
+            @endcan
 
+            @can('VerTecnico')
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTecnicos"
                     aria-expanded="true" aria-controls="collapseTecnicos">
@@ -143,12 +153,13 @@
                         <h6 class="collapse-header">Opciones:</h6>
                         <a class="collapse-item" href="{{ url('tecnico') }}"
                             href="utilities-color.html">Tecnicos</a>
-                        <a class="collapse-item" href="{{ url('tecnico/create') }}"
-                            href="utilities-border.html">Insertar tecnico</a>
-
+                        @can('CrearTecnico')
+                        <a class="collapse-item" href="{{ url('tecnico/create') }}" href="utilities-border.html">Insertar tecnico</a>
+                        @endcan
                     </div>
                 </div>
             </li>
+            @endcan
 
             <!-- Divider -->
             <hr class="sidebar-divider">

@@ -16,6 +16,15 @@ class ClienteEmpresarialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('permission:VerCliente')->only('index');
+        $this->middleware('permission:CrearCliente')->only(['create', 'store']);
+        $this->middleware('permission:EditarCliente')->only(['edit', 'update']);
+        $this->middleware('permission:EliminarCliente')->only('destroy');
+    }
+
     public function index()
     {
         $cliente_empresarial = ClienteEmpresarial::orderBy('Cod_Cliente_Emp', 'DESC')->paginate();

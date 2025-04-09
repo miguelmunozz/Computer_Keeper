@@ -14,6 +14,15 @@ class ClienteParticularController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('permission:VerCliente')->only('index');
+         $this->middleware('permission:CrearCliente')->only(['create', 'store']);
+         $this->middleware('permission:EditarCliente')->only(['edit', 'update']);
+         $this->middleware('permission:EliminarCliente')->only('destroy');
+     }
+
     public function index()
     {
         $cliente_particular = ClienteParticular::orderBy('Cod_Cliente_Part', 'DESC')->paginate();

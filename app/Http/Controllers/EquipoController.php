@@ -14,7 +14,13 @@ class EquipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
+    public function __construct()
+    {
+        $this->middleware('permission:VerEquipo')->only('index');
+        $this->middleware('permission:CrearEquipo')->only(['create', 'store']);
+        $this->middleware('permission:EditarEquipo')->only(['edit', 'update']);
+        $this->middleware('permission:EliminarEquipo')->only('destroy');
+    }
 
     public function index()
     {

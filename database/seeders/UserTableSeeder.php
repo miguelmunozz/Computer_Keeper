@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use App\Models\User;
-use App\Models\Role;
 
 class UserTableSeeder extends Seeder
 {
@@ -16,19 +17,13 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $role_user = Role::where('name', 'user')->first();
-        $role_admin = Role::where('name', 'admin')->first();
         $user = new User();
-        $user->name = 'User';
-        $user->email = 'user@gmail.com';
-        $user->password = bcrypt('secret');
-        $user->save();
-        $user->roles()->attach($role_user);
-        $user = new User();
-        $user->name = 'Admin';
+        $user->id = 1800000000000; //ponemos el id manualmente para evitar conflictos con la creacion de tecnicos(usuarios)
+        $user->name = 'Administrador';
         $user->email = 'admin@gmail.com';
-        $user->password = bcrypt('secret');
+        $user->password = bcrypt('12345678');
         $user->save();
-        $user->roles()->attach($role_admin);
+        $user->assignRole('admin');
+
     }
 }

@@ -13,6 +13,14 @@ use Illuminate\Validation\Rule;
 
 class TecnicoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:CrearTecnico')->only(['create', 'store']);
+        $this->middleware('permission:EditarTecnico')->only(['edit', 'update']);
+        $this->middleware('permission:EliminarTecnico')->only(['destroy']);
+        $this->middleware('permission:VerTecnico')->only(['index', 'show']);
+    }
+    
     public function index()
     {
         $tecnico = Tecnico::orderBy('Cod_Tecnico', 'DESC')->paginate();
@@ -66,6 +74,9 @@ class TecnicoController extends Controller
         $tecnicos->Fecha_Nac = $request->input('Fecha_Nac');
         $tecnicos->email = $request->input('email');
         $tecnicos->save();
+
+        // Asignar el rol "técnico"
+        $tecnicos->assignRole('tecnico');
 
         // Obtener el ID del cliente recién creado
         $tecnicoID = $tecnicos->Cod_Tecnico;

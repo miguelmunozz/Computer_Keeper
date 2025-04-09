@@ -2,8 +2,11 @@
 @section('contenido')
 <div class="row">
     <div class="col-md-9">
+        @can('CrearTecnico')
         <a href="{{ url('tecnico/create') }}" class="pull-right">
-            <button class="btn btn-success">Crear técnico</button> </a>
+            <button class="btn btn-success">Crear técnico</button> 
+        </a>
+        @endcan
     </div>
 </div>
 <div class="mb-3"></div>
@@ -39,10 +42,14 @@
                             <td>{{ $tec->Telefono }}</td>
                             <td>{{ $tec->Fecha_Nac }}</td>
                             <td>
+                                @can('EditarTecnico')
                                 <a href="{{ URL::action('App\Http\Controllers\TecnicoController@edit', $tec->Cod_Tecnico) }}"><button class="btn btn-primary">Actualizar</button></a>
+                                @endcan
+                                @can('EliminarTecnico')
                                 <a href="" data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $tec->Cod_Tecnico }}">
                                     <button type="button" class="btn btn-danger">Eliminar</button>
                                 </a>
+                                @endcan
                             </td>
                         </tr>
                         @include('tecnico.modal')
