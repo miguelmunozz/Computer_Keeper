@@ -75,9 +75,6 @@ class TecnicoController extends Controller
         $tecnicos->email = $request->input('email');
         $tecnicos->save();
 
-        // Asignar el rol "técnico"
-        $tecnicos->assignRole('tecnico');
-
         // Obtener el ID del cliente recién creado
         $tecnicoID = $tecnicos->Cod_Tecnico;
         $nombreCompleto = $request->input('Nombres') . ' ' . $request->input('Apellidos');
@@ -89,6 +86,9 @@ class TecnicoController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
+        // Asignar el rol "técnico"
+        $user->assignRole('tecnico');
+        
         return redirect('tecnico');
     }
 
