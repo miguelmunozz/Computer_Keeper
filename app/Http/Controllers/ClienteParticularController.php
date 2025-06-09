@@ -25,7 +25,7 @@ class ClienteParticularController extends Controller
 
     public function index()
     {
-        $cliente_particular = ClienteParticular::orderBy('Cod_Cliente_Part', 'DESC')->paginate();
+        $cliente_particular = ClienteParticular::orderBy('Cod_Cliente_Part', 'DESC')->get();
         return view('cliente_particular.index', compact('cliente_particular'));
     }
 

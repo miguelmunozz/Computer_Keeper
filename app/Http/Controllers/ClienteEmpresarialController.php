@@ -27,7 +27,7 @@ class ClienteEmpresarialController extends Controller
 
     public function index()
     {
-        $cliente_empresarial = ClienteEmpresarial::orderBy('Cod_Cliente_Emp', 'DESC')->paginate();
+        $cliente_empresarial = ClienteEmpresarial::orderBy('Cod_Cliente_Emp', 'DESC')->get();
         return view('cliente_empresarial.index', compact('cliente_empresarial'));
     }
 

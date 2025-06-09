@@ -23,7 +23,7 @@ class TecnicoController extends Controller
     
     public function index()
     {
-        $tecnico = Tecnico::orderBy('Cod_Tecnico', 'DESC')->paginate();
+        $tecnico = Tecnico::orderBy('Cod_Tecnico', 'DESC')->get();
         return view('tecnico.index', compact('tecnico'));
     }
 
