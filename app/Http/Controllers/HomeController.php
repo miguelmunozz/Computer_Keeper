@@ -28,7 +28,7 @@ class HomeController extends Controller
         $countCerrado = Servicio::where('Estado', 'Cerrado')->count();
         $servicio = Servicio::whereIn('Estado', ['En proceso', 'Abierto'])
         ->orderBy('Cod_Servicio', 'DESC')
-        ->paginate(0);    
+        ->get();    
         $totalServicios = Servicio::count();
     
         return view('layouts.tarjeta',compact('servicio','countEnproceso', 'countAbierto', 'countCerrado', 'totalServicios'));
